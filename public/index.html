@@ -10,8 +10,13 @@
 </head>
 
 <body>
-    <section>
+    <section class="search-section">
 
+        <input type="text" name="query" class="search-input" id="search-input" aria-label="search input"
+            placeholder="write for autocomplete" list="suggestions">
+        <datalist id="suggestions" class="datalist">
+        </datalist>
+        <button id="search-btn" class="search-btn">Search</button>
     </section>
     <script src='/public/js/dom.js'></script>
     <script src='/public/js/logic.js'></script>
