@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon ./src/server.js",
+    "killrun":"npm run killport && npm run dev",
     "test": "node ./test/test.js | tap-spec",
+    "killport": "fuser -k 8000/tcp",
     "cover": "nyc --reporter=lcov node ./test/test.js ",
     "coverage": "nyc node ./test/test.js "
   },
