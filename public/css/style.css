@@ -1,0 +1,18 @@
+
+.search-section{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  height: 2rem;
+}
+.search-input{
+  flex-grow: 10
+
+}
+.search-btn{
+  flex-grow: 1
+}
+.search-input::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
