@@ -6,6 +6,12 @@ const generateXhr = (url, callback) => {
       if (xhr.status === 200) {
         // console.log(JSON.parse(xhr.responseText));
         callback(JSON.parse(xhr.responseText));
+      } else if (xhr.status === 404) {
+        console.log('404 Page Not Found');
+      } else if (xhr.status === 500) {
+        console.log('Server Error');
+      } else {
+        console.log(xhr.status);
       }
     }
   };

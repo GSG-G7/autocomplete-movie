@@ -1,8 +1,8 @@
 const test = require('tape');
-const {fetchTitles}=require('../public/js/logic')
+const { fetchTitles } = require('../public/js/logic');
 
-const testObj={
-  arr:[
+const testObj = {
+  arr: [
     { id: 644, title: 'A.I. Artificial Intelligence' },
     { id: 646, title: 'Dr. No' },
     { id: 647, title: 'Final Fantasy VII: Advent Children' },
@@ -20,16 +20,16 @@ const testObj={
     { id: 660, title: 'Thunderball' },
     { id: 661, title: 'Boyz ukmukjfyh' },
     { id: 662, title: 'Boyz kdtg djfh ' },
-  ]
-}
+  ],
+};
 
 
-test("example", t => {
-  t.equal(1, 1, "one should equal one");
+test('example', (t) => {
+  t.equal(1, 1, 'one should equal one');
   t.end();
 });
 
-test("testing fetchTitles function",(t)=>{
-t.deepEqual(fetchTitles('Boyz',testObj),['Boyz n the Hood', 'Boyz ukmukjfyh', 'Boyz kdtg djfh ' ],"Two Arrays must me equal");
-t.end();
-})
+test('testing fetchTitles function', (t) => {
+  t.deepEqual(fetchTitles('Boyz', testObj), ['Boyz n the Hood', 'Boyz ukmukjfyh', 'Boyz kdtg djfh '], 'Two Arrays must me equal');
+  t.end();
+});
