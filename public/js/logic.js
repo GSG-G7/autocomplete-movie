@@ -1,10 +1,16 @@
-const fetchTitles = (query, Obj) => {
-  let matchTitles = Obj.arr.filter(el => el.title.startsWith(query));
-  matchTitles = matchTitles.map(ele => ele.title);
-  // return ['Boyz n the Hood', 'Boyz ukmukjfyh', 'Boyz kdtg djfh '];
+const extractTitles = (query, Obj) => {
+  const matchTitles = Obj.arr.filter(el => el.title.startsWith(query));
   return matchTitles;
 };
 
+const extractDetails = res => ({
+  name: res.original_title,
+  posterLink: `https://image.tmdb.org/t/p/w500${res.poster_path}`,
+  overview: res.overview,
+  genre: res.genres.map(e => e.name),
+  rating: res.vote_average,
+});
 module.exports = {
-  fetchTitles,
+  extractTitles,
+  extractDetails,
 };
