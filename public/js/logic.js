@@ -5,6 +5,4 @@ const extractDetails = res => ({
   genre: res.genres.map(e => e.name),
   rating: res.vote_average,
 });
-module.exports = {
-  extractDetails,
-};
+if (typeof module !== 'undefined') module.exports = { extractDetails };
