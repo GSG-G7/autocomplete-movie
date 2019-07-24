@@ -1,5 +1,6 @@
 const http = require('http');
 const router = require('./router');
+require('env2')('.env');
 
 let port = process.env.PORT;
 if (port === '' || port === undefined) {
