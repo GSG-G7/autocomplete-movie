@@ -4,12 +4,13 @@ const searchInput = selector('search-input');
 const searchSection = selector('search-section');
 const createE = tag => document.createElement(tag);
 const callback = (res) => {
-  const suggestedTitles = res.results.slice(0, 10);
+  const suggestedTitles = res.results;
   const suggestions = selector('suggestions');
   const newDatalist = document.createElement('datalist');
   suggestedTitles.forEach((ele) => {
     const option1 = document.createElement('option');
     option1.value = ele.title;
+    option1.classList.add('option');
     newDatalist.appendChild(option1);
   });
   newDatalist.classList.add = 'suggestions';
@@ -19,17 +20,9 @@ const callback = (res) => {
 let array;
 searchInput.addEventListener('keyup', (e) => {
   const inputValue = e.target.value;
-
-  if (inputValue.length === 1) {
-    // eslint-disable-next-line no-undef
-    generateXhr(`/find?q=${inputValue}`, (res) => {
-      array = res;
-      callback(array);
-    });
-  } else {
-    const newRes = titlesArray(inputValue, array);
-    callback(newRes);
-  }
+  generateXhr(`/find?q=${inputValue}`, (res) => {
+    callback(res);
+  });
 });
 
 const createMovieNode = (obj) => {
