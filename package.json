@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node node ./test/test.js",
+    "start": "node ./src/server.js",
     "dev": "nodemon ./src/server.js",
     "killrun": "npm run killport && npm run dev",
     "test": "node ./test/test.js | tap-spec",
