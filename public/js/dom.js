@@ -19,7 +19,7 @@ const callback = (res) => {
 };
 let array;
 searchInput.addEventListener('keyup', (e) => {
-  const inputValue = e.target.value;
+  const inputValue = e.target.value.toLowerCase().split(' ').join('+');
   if (inputValue.length !== 0) {
     generateXhr(`/find?q=${inputValue}`, (res) => {
       if (inputValue.length === 1) array = res;
@@ -66,12 +66,17 @@ const createMovieNode = (obj) => {
 };
 
 selector('search-btn').addEventListener('click', () => {
-  const { id } = array.results.find(e => e.title === searchInput.value);
-  generateXhr(`/get?q=${id}`, (res) => {
-    const container = createE('div');
-    container.id = 'result-movie-container';
-    const oldContainer = selector('result-movie-container');
-    container.appendChild(createMovieNode(extractDetails(res)));
-    selector('result-movie').replaceChild(container, oldContainer);
-  });
+  try {
+    const { id } = array.results.find(e => e.title === searchInput.value.trim());
+    generateXhr(`/get?q=${id}`, (res) => {
+      const container = createE('div');
+      container.id = 'result-movie-container';
+      const oldContainer = selector('result-movie-container');
+      container.appendChild(createMovieNode(extractDetails(res)));
+      selector('result-movie').replaceChild(container, oldContainer);
+    });
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.log('invalid search');
+  }
 });

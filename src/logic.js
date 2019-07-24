@@ -1,5 +1,5 @@
 const extractTitles = (query, Obj) => Obj.results.filter(
-  el => el.title.toLowerCase().startsWith(query.toLowerCase()),
+  el => el.title.toLowerCase().startsWith(query.toLowerCase().split('+').join(' ')),
 );
 
 
