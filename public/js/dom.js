@@ -21,7 +21,7 @@ let array;
 searchInput.addEventListener('keyup', (e) => {
   const inputValue = e.target.value;
   generateXhr(`/find?q=${inputValue}`, (res) => {
-    array = res;
+    if (inputValue.length === 1) array = res;
     callback(res);
   });
 });
