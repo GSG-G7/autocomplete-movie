@@ -1,4 +1,3 @@
-
 const generateXhr = (url, callback) => {
   const xhr = new XMLHttpRequest();
   xhr.onreadystatechange = () => {
@@ -18,7 +17,3 @@ const generateXhr = (url, callback) => {
   xhr.open('GET', url);
   xhr.send();
 };
-
-generateXhr('/find?q=t', (res) => {
-  console.log(res);
-});
