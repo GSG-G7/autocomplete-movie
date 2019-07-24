@@ -8,7 +8,8 @@ module.exports = (req, res) => {
   const filePath = path.join(__dirname, '..', '..', ...endpoint.split('/'));
   fs.readFile(filePath, (err, file) => {
     if (err) {
-      console.log(err);
+      res.writeHead(500, getMime('html'));
+      res.end('<h1>Internal Server Error</h1>');
     } else {
       res.writeHead(200, getMime(ext));
       res.end(file);
