@@ -12,7 +12,7 @@ const router = (req, res) => {
     homeHandler(req, res);
   } else if (endpoint.includes('/public/')) {
     staticsHandler(req, res);
-  } else if (endpoint === '/find') {
+  } else if (endpoint.includes('/find')) {
     findHandler(req, res);
   } else {
     res.writeHead(404, { 'Content-Type': 'text/html' });

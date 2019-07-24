@@ -19,6 +19,6 @@ const generateXhr = (url, callback) => {
   xhr.send();
 };
 
-generateXhr('/find', (res) => {
+generateXhr('/find?q=t', (res) => {
   console.log(res);
 });
