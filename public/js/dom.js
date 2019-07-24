@@ -20,10 +20,12 @@ const callback = (res) => {
 let array;
 searchInput.addEventListener('keyup', (e) => {
   const inputValue = e.target.value;
-  generateXhr(`/find?q=${inputValue}`, (res) => {
-    if (inputValue.length === 1) array = res;
-    callback(res);
-  });
+  if (inputValue.length !== 0) {
+    generateXhr(`/find?q=${inputValue}`, (res) => {
+      if (inputValue.length === 1) array = res;
+      callback(res);
+    });
+  }
 });
 
 const createMovieNode = (obj) => {
