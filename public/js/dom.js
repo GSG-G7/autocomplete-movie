@@ -9,25 +9,17 @@ const callback = (res) => {
   suggestedTitles.forEach((ele) => {
     const option1 = document.createElement('option');
     option1.value = ele.title;
-    option1.classList.add('')
+    option1.classList.add('option');
     newDatalist.appendChild(option1);
   });
   newDatalist.classList.add = 'suggestions';
   newDatalist.id = 'suggestions';
   searchSection.replaceChild(newDatalist, suggestions);
 };
-// let array;/
+let array;
 searchInput.addEventListener('keyup', (e) => {
   const inputValue = e.target.value;
-
-  // if (inputValue.length === 1) {
-  // eslint-disable-next-line no-undef
   generateXhr(`/find?q=${inputValue}`, (res) => {
-    // array = res;
     callback(res);
   });
-  // } else {
-  //   const newRes = titlesArray(inputValue, array);
-  //   callback(newRes);
-  // }
 });
