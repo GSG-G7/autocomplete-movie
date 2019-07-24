@@ -76,7 +76,7 @@ selector('search-btn').addEventListener('click', () => {
       selector('result-movie').replaceChild(container, oldContainer);
     });
   } catch (err) {
-    // eslint-disable-next-line no-console
-    console.log('invalid search');
+    // eslint-disable-next-line no-alert
+    alert('invalid search');
   }
 });
