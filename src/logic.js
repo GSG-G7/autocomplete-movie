@@ -3,4 +3,4 @@ const extractTitles = (query, Obj) => Obj.arr.filter(
 );
 
 
-if (typeof module !== 'undefined') module.exports = extractTitles;
+if (typeof module !== 'undefined') module.exports = { extractTitles };
