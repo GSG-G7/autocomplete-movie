@@ -3,6 +3,5 @@ const extractTitles = (query, Obj) => {
   return matchTitles;
 };
 
-module.exports = {
-  extractTitles,
-};
+
+if (typeof module !== 'undefined') module.exports = extractTitles;
