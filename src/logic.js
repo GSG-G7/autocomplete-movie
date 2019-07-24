@@ -1,4 +1,4 @@
-const extractTitles = (query, Obj) => Obj.arr.filter(
+const extractTitles = (query, Obj) => Obj.results.filter(
   el => el.title.toLowerCase().startsWith(query.toLowerCase()),
 );
 
