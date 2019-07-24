@@ -64,9 +64,8 @@ const createMovieNode = (obj) => {
 };
 
 selector('search-btn').addEventListener('click', () => {
-  const { id } = array.results.find(e=> e.title === searchInput.value);
+  const { id } = array.results.find(e => e.title === searchInput.value);
   generateXhr(`/get?q=${id}`, (res) => {
-    console.log(extractDetails(res));
     const container = createE('div');
     container.id = 'result-movie-container';
     const oldContainer = selector('result-movie-container');
