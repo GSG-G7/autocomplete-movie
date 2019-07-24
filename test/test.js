@@ -1,8 +1,6 @@
 const test = require('tape');
-const {
-  extractTitles,
-  extractDetails,
-} = require('../public/js/logic');
+const { extractDetails } = require('../public/js/logic');
+const { extractTitles } = require('../src/logic');
 
 const testObj = {
   arr: [
