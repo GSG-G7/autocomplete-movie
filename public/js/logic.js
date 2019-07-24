@@ -5,4 +5,10 @@ const extractDetails = res => ({
   genre: res.genres.map(e => e.name),
   rating: res.vote_average,
 });
-if (typeof module !== 'undefined') module.exports = { extractDetails };
+
+const titlesArray = (input, response) => {
+  const title = response.results.filter(ele => ele.title.startsWith(input));
+  return title;
+};
+
+if (typeof module !== 'undefined') module.exports = { extractDetails, titlesArray };

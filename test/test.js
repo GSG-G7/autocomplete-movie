@@ -1,9 +1,9 @@
 const test = require('tape');
-const { extractDetails } = require('../public/js/logic');
+const { extractDetails, titlesArray } = require('../public/js/logic');
 const { extractTitles } = require('../src/logic');
 
 const testObj = {
-  arr: [
+  results: [
     { id: 644, title: 'A.I. Artificial Intelligence' },
     { id: 646, title: 'Dr. No' },
     { id: 647, title: 'Final Fantasy VII: Advent Children' },
@@ -92,7 +92,7 @@ test('example', (t) => {
 });
 
 test('testing fetchTitles function', (t) => {
-  t.deepEqual(extractTitles('Boyz', testObj), [{ id: 650, title: 'Boyz n the Hood' }, { id: 661, title: 'Boyz ukmukjfyh' }, { id: 662, title: 'Boyz kdtg djfh ' }], 'Two Arrays must me equal');
+  t.deepEqual(extractTitles('Boyz', testObj), [{ id: 650, title: 'Boyz n the Hood' }, { id: 661, title: 'Boyz ukmukjfyh' }, { id: 662, title: 'Boyz kdtg djfh ' }], 'Two resultsays must me equal');
   t.end();
 });
 
@@ -106,5 +106,10 @@ test('Testing extractDetails function', (t) => {
     "rating": 7.4
   }`),
   'The expected and the actual must be equal');
+  t.end();
+});
+
+test('Testing Title resultsay function', (t) => {
+  t.deepEqual(titlesArray('Bo', testObj), [{ id: 650, title: 'Boyz n the Hood' }, { id: 661, title: 'Boyz ukmukjfyh' }, { id: 662, title: 'Boyz kdtg djfh ' }], 'Two Arrays must me equal');
   t.end();
 });
