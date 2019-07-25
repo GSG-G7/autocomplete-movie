@@ -1,9 +1,9 @@
-/* eslint-disable no-undef */
+let array;
 const selector = id => document.querySelector(`#${id}`);
 const searchInput = selector('search-input');
 const searchSection = selector('search-section');
 const createE = tag => document.createElement(tag);
-const callback = (res) => {
+const renderSuggestions = (res) => {
   const suggestedTitles = res.results;
   const suggestions = selector('suggestions');
   const newDatalist = document.createElement('datalist');
@@ -17,13 +17,12 @@ const callback = (res) => {
   newDatalist.id = 'suggestions';
   searchSection.replaceChild(newDatalist, suggestions);
 };
-let array;
 searchInput.addEventListener('keyup', (e) => {
   const inputValue = e.target.value.toLowerCase().split(' ').join('+');
   if (inputValue.length !== 0) {
     generateXhr(`/find?q=${inputValue}`, (res) => {
       if (inputValue.length === 1) array = res;
-      callback(res);
+      renderSuggestions(res);
     });
   }
 });
