@@ -5,7 +5,7 @@ const { extractTitles } = require('../logic');
 
 module.exports = (req, res) => {
   const query = req.url.slice(8);// /find?q=asld => asld
-  const filePath = path.join(__dirname, '..', '/model', 'movies.json');
+  const filePath = path.join(__dirname, '..', 'model', 'movies.json');
   fs.readFile(filePath, (err, file) => {
     if (err) {
       res.writeHead(500, getMime('html'));
