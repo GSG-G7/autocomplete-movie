@@ -20,7 +20,7 @@ const callback = (res) => {
 let array;
 searchInput.addEventListener('keyup', (e) => {
   const inputValue = e.target.value.toLowerCase().split(' ').join('+');
-  if (inputValue.length !== 0) {
+  if (inputValue.length) {
     generateXhr(`/find?q=${inputValue}`, (res) => {
       if (inputValue.length === 1) array = res;
       callback(res);
