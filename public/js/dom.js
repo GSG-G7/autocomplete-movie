@@ -76,6 +76,8 @@ selector('search-btn').addEventListener('click', () => {
     });
   } catch (err) {
     // eslint-disable-next-line no-alert
-    alert('invalid search');
+    const errorMessage = createE('p');
+    errorMessage.textContent = 'No results match your input!';
+    selector('result-movie-container').appendChild(errorMessage);
   }
 });
