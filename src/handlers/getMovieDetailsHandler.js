@@ -8,8 +8,9 @@ module.exports = (req, res) => {
     if (err) {
       res.writeHead(404, getMime('html'));
       res.end('<h1>Not Found 404<h1>');
+    } else {
+      res.writeHead(response.statusCode, getMime('json'));
+      res.end(body);
     }
-    res.writeHead(response.statusCode, getMime('json'));
-    res.end(body);
   });
 };
