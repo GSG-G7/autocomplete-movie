@@ -19,7 +19,7 @@ const renderSuggestions = (res) => {
 };
 searchInput.addEventListener('keyup', (e) => {
   const inputValue = e.target.value.toLowerCase().split(' ').join('+');
-  if (inputValue.length !== 0) {
+  if (inputValue.length) {
     generateXhr(`/find?q=${inputValue}`, (res) => {
       if (inputValue.length === 1) array = res;
       renderSuggestions(res);

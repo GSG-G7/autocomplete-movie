@@ -6,9 +6,9 @@ const extractDetails = res => ({
   rating: res.vote_average,
 });
 
-const titlesArray = (input, response) => {
-  const title = response.results.filter(ele => ele.title.startsWith(input));
-  return title;
+const titlesArray = (query, response) => {
+  const titlesMatch = response.results.filter(ele => ele.title.startsWith(query));
+  return titlesMatch;
 };
 
 if (typeof module !== 'undefined') module.exports = { extractDetails, titlesArray };
