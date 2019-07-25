@@ -41,3 +41,6 @@
     * description
     * rating
     * genre
+# npm dependencies
+ - [env2](https://www.npmjs.com/package/env2) this manages the env variables, require('env2') => is a functon that we can excute => require('env2')('.env');
+ - [request](https://github.com/request/request#readme) this lets us make api requests in the server
